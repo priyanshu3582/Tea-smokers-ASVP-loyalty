@@ -233,65 +233,120 @@
 
 
   <script>
+const form = document.getElementById("joinForm");
+const successMessage = document.getElementById("successMessage");
+const pointsElement = document.getElementById("points");
 
-    const form = document.getElementById("joinForm");
-    const successMessage = document.getElementById("successMessage");
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
 
-    form.addEventListener("submit", function(event) {
+    const name = document.getElementById("name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
 
-      event.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const mobile = document.getElementById("mobile").value.trim();
-
-      if (!/^[0-9]{10}$/.test(mobile)) {
-        alert("Please enter a valid 10-digit mobile number.");
+    if (!name) {
+        alert("Please enter your name.");
         return;
-      }
-
-      const customer = {
-        name: name,
-        mobile: mobile,
-        points: 0,
-        joinedAt: new Date().toISOString()
-      };
-
-      localStorage.setItem(
-        "teaSmokersCustomer",
-        JSON.stringify(customer)
-      );
-
-      successMessage.style.display = "block";
-
-      form.reset();
-
-      setTimeout(function() {
-        successMessage.style.display = "none";
-      }, 4000);
-
-    });
-
-
-    const savedCustomer =
-      localStorage.getItem("teaSmokersCustomer");
-
-    if (savedCustomer) {
-
-      try {
-
-        const customer =
-          JSON.parse(savedCustomer);
-
-        document.getElementById("points").textContent =
-          customer.points || 0;
-
-      } catch (error) {
-
-        console.log("Customer data could not be loaded.");
-
-      }
     }
 
+    if (!/^[0-9]{10}$/.test(mobile)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+    }
+
+    const button = form.querySelector("button");
+
+    button.disabled = true;
+    button.textContent = "Registering...";
+
+    try {
+        const response = await fetch("/api/customers", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                phone: mobile
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Registration failed.");
+        }
+
+        // Save customer information locally
+        localStorage.setItem(
+            "teaSmokersCustomer",
+            JSON.stringify(data.customer)
+        );
+
+        // Show points from database
+        pointsElement.textContent =
+            data.customer.stamps || 0;
+
+        // Show success message
+        successMessage.textContent =
+            "🎉 Welcome " + data.customer.name + "! Your loyalty card is ready.";
+
+        successMessage.style.display = "block";
+
+        // Show card URL in console for testing
+        console.log("Customer:", data.customer);
+        console.log("Card URL:", data.cardUrl);
+
+        form.reset();
+
+        setTimeout(function() {
+            successMessage.style.display = "none";
+        }, 5000);
+
+    } catch (error) {
+        console.error(error);
+        alert(error.message || "Something went wrong. Please try again.");
+    }
+
+    button.disabled = false;
+    button.textContent = "Join Loyalty Program";
+});
+
+
+// Load saved customer from server using saved token
+async function loadCustomer() {
+
+    const savedCustomer =
+        localStorage.getItem("teaSmokersCustomer");
+
+    if (!savedCustomer) return;
+
+    try {
+
+        const customer = JSON.parse(savedCustomer);
+
+        if (!customer.token) return;
+
+        const response =
+            await fetch("/api/customer/" + customer.token);
+
+        if (!response.ok) return;
+
+        const data = await response.json();
+
+        localStorage.setItem(
+            "teaSmokersCustomer",
+            JSON.stringify(data)
+        );
+
+        pointsElement.textContent =
+            data.stamps || 0;
+
+    } catch (error) {
+        console.error("Could not load customer:", error);
+    }
+}
+
+loadCustomer();
   </script>
 
 </body>
