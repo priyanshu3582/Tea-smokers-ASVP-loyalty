@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tea Smokers Loyalty Pro</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f3ed;
+      color: #222;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: #1f1f1f;
+      color: white;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 42px;
+      margin-bottom: 8px;
+    }
+
+    .header h1 {
+      font-size: 25px;
+    }
+
+    .header p {
+      margin-top: 6px;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 12px 0 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #333;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 18px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #222;
+      color: white;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .points {
+      text-align: center;
+      background: #222;
+      color: white;
+    }
+
+    .points-number {
+      font-size: 42px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .reward {
+      border: 2px dashed #ccc;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .success {
+      display: none;
+      background: #e9f8ed;
+      color: #176b2c;
+      padding: 12px;
+      border-radius: 10px;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #888;
+      font-size: 12px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="logo">☕</div>
+    <h1>Tea Smokers Loyalty Pro</h1>
+    <p>Every visit. Every cup. More rewards.</p>
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Join Our Loyalty Program</h2>
+      <p>
+        Register your mobile number and start earning loyalty points
+        on your Tea Smokers visits.
+      </p>
+
+      <form id="joinForm">
+
+        <label for="name">Your Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your name"
+          required
+        >
+
+        <label for="mobile">Mobile Number</label>
+        <input
+          type="tel"
+          id="mobile"
+          placeholder="10-digit mobile number"
+          maxlength="10"
+          required
+        >
+
+        <button type="submit">
+          Join Loyalty Program
+        </button>
+
+      </form>
+
+      <div class="success" id="successMessage">
+        🎉 Welcome to Tea Smokers Loyalty Pro!
+      </div>
+    </div>
+
+
+    <div class="card points">
+      <h2>Your Loyalty Points</h2>
+
+      <div class="points-number" id="points">
+        0
+      </div>
+
+      <p style="color:#ccc;">
+        Keep visiting and earn more rewards.
+      </p>
+    </div>
+
+
+    <div class="card">
+      <h2>🎁 Rewards</h2>
+
+      <div class="reward">
+        <strong>50 Points</strong>
+        <p>Special Tea Smokers Reward</p>
+      </div>
+
+      <div class="reward">
+        <strong>100 Points</strong>
+        <p>Premium Customer Reward</p>
+      </div>
+
+      <div class="reward">
+        <strong>250 Points</strong>
+        <p>VIP Loyalty Reward</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Tea Smokers Loyalty Pro<br>
+    Powered by ASVP Enterprises
+  </div>
+
+
+  <script>
+
+    const form = document.getElementById("joinForm");
+    const successMessage = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+
+      if (!/^[0-9]{10}$/.test(mobile)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+      }
+
+      const customer = {
+        name: name,
+        mobile: mobile,
+        points: 0,
+        joinedAt: new Date().toISOString()
+      };
+
+      localStorage.setItem(
+        "teaSmokersCustomer",
+        JSON.stringify(customer)
+      );
+
+      successMessage.style.display = "block";
+
+      form.reset();
+
+      setTimeout(function() {
+        successMessage.style.display = "none";
+      }, 4000);
+
+    });
+
+
+    const savedCustomer =
+      localStorage.getItem("teaSmokersCustomer");
+
+    if (savedCustomer) {
+
+      try {
+
+        const customer =
+          JSON.parse(savedCustomer);
+
+        document.getElementById("points").textContent =
+          customer.points || 0;
+
+      } catch (error) {
+
+        console.log("Customer data could not be loaded.");
+
+      }
+    }
+
+  </script>
+
+</body>
+</html>
