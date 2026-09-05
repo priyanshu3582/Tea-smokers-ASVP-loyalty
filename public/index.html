@@ -1,169 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tea Smokers Loyalty Pro</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tea Smokers Loyalty Pro</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
-    body {
-      background: #f7f3ed;
-      color: #222;
-      min-height: 100vh;
-    }
+body{
+  background:#f7f3ed;
+  color:#222;
+  min-height:100vh;
+}
 
-    .header {
-      background: #1f1f1f;
-      color: white;
-      padding: 24px 20px;
-      text-align: center;
-    }
+.header{
+  background:#1f1f1f;
+  color:white;
+  padding:22px 18px;
+  text-align:center;
+}
 
-    .logo {
-      font-size: 42px;
-      margin-bottom: 8px;
-    }
+.logo{
+  font-size:40px;
+  margin-bottom:6px;
+}
 
-    .header h1 {
-      font-size: 25px;
-    }
+.header h1{
+  font-size:24px;
+}
 
-    .header p {
-      margin-top: 6px;
-      color: #ddd;
-      font-size: 14px;
-    }
+.header p{
+  margin-top:6px;
+  color:#ccc;
+  font-size:13px;
+}
 
-    .container {
-      max-width: 500px;
-      margin: auto;
-      padding: 20px;
-    }
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
 
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    }
+.card{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
 
-    .card h2 {
-      margin-bottom: 8px;
-      font-size: 21px;
-    }
+.card h2{
+  margin-bottom:8px;
+  font-size:21px;
+}
 
-    .card p {
-      color: #666;
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
+.card p{
+  color:#666;
+  font-size:14px;
+  line-height:1.5;
+  margin-bottom:15px;
+}
 
-    label {
-      display: block;
-      font-size: 14px;
-      font-weight: bold;
-      margin: 12px 0 6px;
-    }
+label{
+  display:block;
+  font-size:14px;
+  font-weight:bold;
+  margin:12px 0 6px;
+}
 
-    input {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 16px;
-      outline: none;
-    }
+input{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:16px;
+  outline:none;
+}
 
-    input:focus {
-      border-color: #333;
-    }
+input:focus{
+  border-color:#333;
+}
 
-    button {
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 18px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #222;
-      color: white;
-    }
+button{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:14px;
+  margin-top:15px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  background:#222;
+  color:white;
+}
 
-    button:active {
-      transform: scale(0.98);
-    }
+button:hover{
+  opacity:.9;
+}
 
-    .points {
-      text-align: center;
-      background: #222;
-      color: white;
-    }
+button:active{
+  transform:scale(.98);
+}
 
-    .points-number {
-      font-size: 42px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
+button.secondary{
+  background:#eee;
+  color:#222;
+}
 
-    .reward {
-      border: 2px dashed #ccc;
-      border-radius: 12px;
-      padding: 15px;
-      margin-top: 12px;
-      text-align: center;
-    }
+button.danger{
+  background:#b3261e;
+}
 
-    .success {
-      display: none;
-      background: #e9f8ed;
-      color: #176b2c;
-      padding: 12px;
-      border-radius: 10px;
-      margin-top: 15px;
-      text-align: center;
-      font-size: 14px;
-    }
+button.successBtn{
+  background:#176b2c;
+}
 
-    .footer {
-      text-align: center;
-      color: #888;
-      font-size: 12px;
-      padding: 20px;
-    }
-  </style>
+.hidden{
+  display:none!important;
+}
+
+/* CUSTOMER */
+
+.customer-container{
+  max-width:500px;
+}
+
+.points{
+  text-align:center;
+  background:#222;
+  color:white;
+}
+
+.points-number{
+  font-size:48px;
+  font-weight:bold;
+  margin:12px 0;
+}
+
+.stamp-bar{
+  height:12px;
+  background:#444;
+  border-radius:20px;
+  overflow:hidden;
+  margin:15px 0;
+}
+
+.stamp-fill{
+  height:100%;
+  width:0%;
+  background:white;
+  transition:.3s;
+}
+
+.reward{
+  border:2px dashed #ccc;
+  border-radius:12px;
+  padding:15px;
+  margin-top:12px;
+  text-align:center;
+}
+
+.success{
+  display:none;
+  background:#e9f8ed;
+  color:#176b2c;
+  padding:12px;
+  border-radius:10px;
+  margin-top:15px;
+  text-align:center;
+  font-size:14px;
+}
+
+.error{
+  display:none;
+  background:#fdecec;
+  color:#a51d1d;
+  padding:12px;
+  border-radius:10px;
+  margin-top:15px;
+  text-align:center;
+  font-size:14px;
+}
+
+.customer-info{
+  text-align:center;
+}
+
+.customer-name{
+  font-size:25px;
+  font-weight:bold;
+}
+
+.customer-phone{
+  color:#777;
+  margin-top:5px;
+}
+
+.reward-available{
+  background:#fff5d9;
+  border:2px solid #e8c65a;
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
+  margin-top:15px;
+}
+
+.history-item{
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+}
+
+.history-item:last-child{
+  border-bottom:0;
+}
+
+.history-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:4px;
+}
+
+.history-small{
+  color:#777;
+  font-size:12px;
+}
+
+/* ADMIN */
+
+.admin-header{
+  background:#222;
+  color:white;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.admin-header button{
+  width:auto;
+  margin:0;
+  background:white;
+  color:#222;
+  padding:10px 18px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-bottom:18px;
+}
+
+.stat{
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.stat-icon{
+  font-size:25px;
+}
+
+.stat-title{
+  color:#777;
+  font-size:13px;
+  margin-top:8px;
+}
+
+.stat-value{
+  font-size:28px;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.admin-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.search-result{
+  background:#f8f8f8;
+  border-radius:12px;
+  padding:15px;
+  margin-top:15px;
+}
+
+.customer-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+
+.customer-table th,
+.customer-table td{
+  padding:11px 8px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+  font-size:13px;
+}
+
+.customer-table th{
+  color:#777;
+  font-size:12px;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#eee;
+  font-size:12px;
+}
+
+.badge.reward{
+  background:#fff1bf;
+  border:0;
+  padding:5px 9px;
+}
+
+.login-box{
+  max-width:420px;
+  margin:50px auto;
+}
+
+.login-logo{
+  text-align:center;
+  font-size:50px;
+  margin-bottom:10px;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:18px;
+  overflow-x:auto;
+}
+
+.tab{
+  width:auto;
+  margin:0;
+  white-space:nowrap;
+  background:#eee;
+  color:#222;
+}
+
+.tab.active{
+  background:#222;
+  color:white;
+}
+
+.section{
+  display:none;
+}
+
+.section.active{
+  display:block;
+}
+
+.loading{
+  text-align:center;
+  padding:20px;
+  color:#777;
+}
+
+.empty{
+  text-align:center;
+  padding:25px;
+  color:#777;
+}
+
+@media(max-width:800px){
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .admin-grid{
+    grid-template-columns:1fr;
+  }
+
+  .customer-table{
+    min-width:650px;
+  }
+
+  .table-wrap{
+    overflow-x:auto;
+  }
+}
+
+@media(max-width:500px){
+  .container{
+    padding:14px;
+  }
+
+  .stats{
+    gap:10px;
+  }
+
+  .stat{
+    padding:15px;
+  }
+
+  .stat-value{
+    font-size:23px;
+  }
+
+  .admin-header{
+    align-items:flex-start;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="header">
-    <div class="logo">☕</div>
-    <h1>Tea Smokers Loyalty Pro</h1>
-    <p>Every visit. Every cup. More rewards.</p>
-  </div>
+<!-- HEADER -->
 
-  <div class="container">
+<div class="header">
+  <div class="logo">☕</div>
+  <h1>Tea Smokers Loyalty Pro</h1>
+  <p>Every visit. Every cup. More rewards.</p>
+</div>
 
-    <div class="card">
+
+<!-- ================= CUSTOMER REGISTRATION ================= -->
+
+<div id="customerPage">
+
+  <div class="container customer-container">
+
+    <div class="card" id="registrationCard">
+
       <h2>Join Our Loyalty Program</h2>
+
       <p>
-        Register your mobile number and start earning loyalty points
+        Register your mobile number and start earning loyalty stamps
         on your Tea Smokers visits.
       </p>
 
       <form id="joinForm">
 
-        <label for="name">Your Name</label>
+        <label>Your Name</label>
         <input
           type="text"
           id="name"
@@ -171,12 +459,13 @@
           required
         >
 
-        <label for="mobile">Mobile Number</label>
+        <label>Mobile Number</label>
         <input
           type="tel"
           id="mobile"
           placeholder="10-digit mobile number"
           maxlength="10"
+          inputmode="numeric"
           required
         >
 
@@ -186,168 +475,1446 @@
 
       </form>
 
-      <div class="success" id="successMessage">
-        🎉 Welcome to Tea Smokers Loyalty Pro!
-      </div>
+      <div class="success" id="successMessage"></div>
+      <div class="error" id="joinError"></div>
+
     </div>
 
 
+    <!-- CUSTOMER PROFILE -->
+
+    <div class="card hidden" id="customerProfile">
+
+      <div class="customer-info">
+        <div class="customer-name" id="customerName"></div>
+        <div class="customer-phone" id="customerPhone"></div>
+      </div>
+
+    </div>
+
+
+    <!-- POINTS -->
+
     <div class="card points">
-      <h2>Your Loyalty Points</h2>
+
+      <h2>Your Loyalty Stamps</h2>
 
       <div class="points-number" id="points">
         0
       </div>
 
       <p style="color:#ccc;">
-        Keep visiting and earn more rewards.
+        Stamps
       </p>
+
+      <div class="stamp-bar">
+        <div class="stamp-fill" id="stampFill"></div>
+      </div>
+
+      <p style="color:#ccc;">
+        ₹150 spent = 1 stamp
+      </p>
+
     </div>
 
+
+    <!-- REWARDS -->
 
     <div class="card">
-      <h2>🎁 Rewards</h2>
 
-      <div class="reward">
-        <strong>50 Points</strong>
-        <p>Special Tea Smokers Reward</p>
+      <h2>🎁 Your Rewards</h2>
+
+      <div id="rewardStatus" class="reward">
+        Earn 10 stamps to unlock ₹150 OFF.
       </div>
 
-      <div class="reward">
-        <strong>100 Points</strong>
-        <p>Premium Customer Reward</p>
+      <div id="rewardAvailable" class="reward-available hidden">
+        <h3>🎉 Reward Available!</h3>
+        <p style="margin:8px 0;">
+          You have a ₹150 OFF reward available.
+        </p>
+        <strong id="rewardCount"></strong>
       </div>
 
-      <div class="reward">
-        <strong>250 Points</strong>
-        <p>VIP Loyalty Reward</p>
+    </div>
+
+
+    <!-- CUSTOMER HISTORY -->
+
+    <div class="card">
+
+      <h2>📜 Visit History</h2>
+
+      <div id="customerHistory">
+        <div class="empty">
+          No visit history yet.
+        </div>
       </div>
+
     </div>
 
   </div>
 
-  <div class="footer">
-    Tea Smokers Loyalty Pro<br>
-    Powered by ASVP Enterprises
+</div>
+
+
+<!-- ================= STAFF LOGIN ================= -->
+
+<div id="staffLoginPage" class="hidden">
+
+  <div class="container">
+
+    <div class="card login-box">
+
+      <div class="login-logo">🔐</div>
+
+      <h2 style="text-align:center;">
+        Staff / Admin Login
+      </h2>
+
+      <p style="text-align:center;">
+        Login to manage customers, stamps and rewards.
+      </p>
+
+      <form id="loginForm">
+
+        <label>Username</label>
+        <input
+          type="text"
+          id="loginUsername"
+          placeholder="Enter username"
+          required
+        >
+
+        <label>Password</label>
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Enter password"
+          required
+        >
+
+        <button type="submit">
+          Login
+        </button>
+
+      </form>
+
+      <div class="error" id="loginError"></div>
+
+    </div>
+
   </div>
 
+</div>
 
-  <script>
-const form = document.getElementById("joinForm");
-const successMessage = document.getElementById("successMessage");
-const pointsElement = document.getElementById("points");
 
-form.addEventListener("submit", async function(event) {
-    event.preventDefault();
+<!-- ================= ADMIN DASHBOARD ================= -->
 
-    const name = document.getElementById("name").value.trim();
-    const mobile = document.getElementById("mobile").value.trim();
+<div id="adminPage" class="hidden">
 
-    if (!name) {
-        alert("Please enter your name.");
-        return;
+  <div class="container">
+
+    <div class="admin-header">
+
+      <div>
+        <h2>☕ Tea Smokers Admin</h2>
+        <p style="color:#ccc;margin:5px 0 0;">
+          Loyalty Management Dashboard
+        </p>
+      </div>
+
+      <button onclick="logout()">
+        Logout
+      </button>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+      <div class="stat">
+        <div class="stat-icon">👥</div>
+        <div class="stat-title">Total Customers</div>
+        <div class="stat-value" id="totalCustomers">0</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-icon">💰</div>
+        <div class="stat-title">Total Sales</div>
+        <div class="stat-value" id="totalSales">₹0</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-title">Active Stamps</div>
+        <div class="stat-value" id="activeStamps">0</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-icon">🎁</div>
+        <div class="stat-title">Rewards Earned</div>
+        <div class="stat-value" id="rewardsEarned">0</div>
+      </div>
+
+    </div>
+
+
+    <!-- TODAY STATS -->
+
+    <div class="card">
+
+      <h2>📅 Today's Activity</h2>
+
+      <div class="stats" style="margin:0;margin-top:15px;">
+
+        <div class="stat">
+          <div class="stat-title">Today's Sales</div>
+          <div class="stat-value" id="todaySales">₹0</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-title">Today's Visits</div>
+          <div class="stat-value" id="todayVisits">0</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-title">Today's Stamps</div>
+          <div class="stat-value" id="todayStamps">0</div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- TABS -->
+
+    <div class="tabs">
+
+      <button
+        class="tab active"
+        onclick="showTab('addStamps',this)">
+        ⭐ Add Stamps
+      </button>
+
+      <button
+        class="tab"
+        onclick="showTab('searchCustomer',this)">
+        🔎 Customer Search
+      </button>
+
+      <button
+        class="tab"
+        onclick="showTab('redeemReward',this)">
+        🎁 Redeem Reward
+      </button>
+
+      <button
+        class="tab"
+        onclick="showTab('allCustomers',this)">
+        👥 Customers
+      </button>
+
+    </div>
+
+
+    <!-- ADD STAMPS -->
+
+    <div id="addStamps" class="section active">
+
+      <div class="card">
+
+        <h2>⭐ Add Stamps</h2>
+
+        <p>
+          Enter the customer's mobile number and bill amount.
+          The system automatically calculates stamps.
+        </p>
+
+        <label>Customer Mobile Number</label>
+
+        <input
+          type="tel"
+          id="stampPhone"
+          placeholder="10-digit mobile number"
+          maxlength="10"
+          inputmode="numeric"
+        >
+
+        <label>Bill Amount ₹</label>
+
+        <input
+          type="number"
+          id="billAmount"
+          placeholder="Enter bill amount"
+          min="150"
+        >
+
+        <div
+          id="stampCalculation"
+          style="
+            margin-top:15px;
+            padding:15px;
+            background:#f7f3ed;
+            border-radius:12px;
+            text-align:center;
+          "
+        >
+          ₹150 = 1 Stamp
+        </div>
+
+        <button
+          class="successBtn"
+          onclick="addStamps()">
+          Add Stamps
+        </button>
+
+        <div class="success" id="stampSuccess"></div>
+        <div class="error" id="stampError"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SEARCH CUSTOMER -->
+
+    <div id="searchCustomer" class="section">
+
+      <div class="card">
+
+        <h2>🔎 Customer Search</h2>
+
+        <p>
+          Search customer using mobile number or name.
+        </p>
+
+        <label>Mobile Number / Name</label>
+
+        <input
+          type="text"
+          id="customerSearch"
+          placeholder="Enter mobile or name"
+          oninput="searchCustomers()"
+        >
+
+        <div id="searchResults"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- REDEEM -->
+
+    <div id="redeemReward" class="section">
+
+      <div class="card">
+
+        <h2>🎁 Redeem Reward</h2>
+
+        <p>
+          One reward gives the customer ₹150 OFF.
+        </p>
+
+        <label>Customer Mobile Number</label>
+
+        <input
+          type="tel"
+          id="redeemPhone"
+          placeholder="10-digit mobile number"
+          maxlength="10"
+          inputmode="numeric"
+        >
+
+        <button
+          class="successBtn"
+          onclick="redeemReward()">
+          Redeem ₹150 OFF
+        </button>
+
+        <div class="success" id="redeemSuccess"></div>
+        <div class="error" id="redeemError"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ALL CUSTOMERS -->
+
+    <div id="allCustomers" class="section">
+
+      <div class="card">
+
+        <h2>👥 All Customers</h2>
+
+        <div class="table-wrap">
+
+          <table class="customer-table">
+
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Stamps</th>
+                <th>Total Spent</th>
+                <th>Rewards</th>
+                <th>Redeemed</th>
+              </tr>
+            </thead>
+
+            <tbody id="customersTable"></tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer" style="
+text-align:center;
+color:#888;
+font-size:12px;
+padding:25px;
+">
+Tea Smokers Loyalty Pro<br>
+Powered by ASVP Enterprises
+</div>
+
+
+<script>
+
+const API = "/api";
+
+let adminToken = localStorage.getItem("teaSmokersAdminToken");
+let customers = [];
+
+
+// =====================================================
+// GENERAL
+// =====================================================
+
+function show(id){
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function hide(id){
+  document.getElementById(id).classList.add("hidden");
+}
+
+function message(id,text){
+  const el=document.getElementById(id);
+  el.textContent=text;
+  el.style.display="block";
+}
+
+function clearMessage(id){
+  const el=document.getElementById(id);
+  if(el){
+    el.textContent="";
+    el.style.display="none";
+  }
+}
+
+function formatMoney(value){
+  return "₹"+Number(value||0).toLocaleString("en-IN");
+}
+
+function formatDate(value){
+  if(!value)return "-";
+
+  try{
+    return new Date(value.replace(" ","T")).toLocaleString("en-IN");
+  }catch(e){
+    return value;
+  }
+}
+
+
+// =====================================================
+// CUSTOMER REGISTRATION
+// =====================================================
+
+const joinForm=document.getElementById("joinForm");
+
+joinForm.addEventListener("submit",async function(event){
+
+  event.preventDefault();
+
+  clearMessage("joinError");
+  clearMessage("successMessage");
+
+  const name=document.getElementById("name").value.trim();
+  const mobile=document.getElementById("mobile").value.trim();
+
+  if(!/^[0-9]{10}$/.test(mobile)){
+    message("joinError","Please enter a valid 10-digit mobile number.");
+    return;
+  }
+
+  try{
+
+    const response=await fetch(API+"/customers",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        name:name,
+        phone:mobile
+      })
+    });
+
+    const data=await response.json();
+
+    if(!response.ok){
+      throw new Error(data.error||"Registration failed");
     }
 
-    if (!/^[0-9]{10}$/.test(mobile)) {
-        alert("Please enter a valid 10-digit mobile number.");
-        return;
-    }
+    localStorage.setItem(
+      "teaSmokersCustomer",
+      JSON.stringify(data.customer)
+    );
 
-    const button = form.querySelector("button");
+    message(
+      "successMessage",
+      "🎉 Welcome "+data.customer.name+"! Your loyalty card is ready."
+    );
 
-    button.disabled = true;
-    button.textContent = "Registering...";
+    joinForm.reset();
 
-    try {
-        const response = await fetch("/api/customers", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: name,
-                phone: mobile
-            })
-        });
+    loadCustomer(data.customer.token);
 
-        const data = await response.json();
+  }catch(error){
 
-        if (!response.ok) {
-            throw new Error(data.error || "Registration failed.");
-        }
+    message("joinError",error.message);
 
-        // Save customer information locally
-        localStorage.setItem(
-            "teaSmokersCustomer",
-            JSON.stringify(data.customer)
-        );
+  }
 
-        // Show points from database
-        pointsElement.textContent =
-            data.customer.stamps || 0;
-
-        // Show success message
-        successMessage.textContent =
-            "🎉 Welcome " + data.customer.name + "! Your loyalty card is ready.";
-
-        successMessage.style.display = "block";
-
-        // Show card URL in console for testing
-        console.log("Customer:", data.customer);
-        console.log("Card URL:", data.cardUrl);
-
-        form.reset();
-
-        setTimeout(function() {
-            successMessage.style.display = "none";
-        }, 5000);
-
-    } catch (error) {
-        console.error(error);
-        alert(error.message || "Something went wrong. Please try again.");
-    }
-
-    button.disabled = false;
-    button.textContent = "Join Loyalty Program";
 });
 
 
-// Load saved customer from server using saved token
-async function loadCustomer() {
+// =====================================================
+// CUSTOMER LOAD
+// =====================================================
 
-    const savedCustomer =
-        localStorage.getItem("teaSmokersCustomer");
+async function loadCustomer(token){
 
-    if (!savedCustomer) return;
+  try{
 
-    try {
+    const response=await fetch(API+"/customer/"+token);
 
-        const customer = JSON.parse(savedCustomer);
+    if(!response.ok)return;
 
-        if (!customer.token) return;
+    const customer=await response.json();
 
-        const response =
-            await fetch("/api/customer/" + customer.token);
+    localStorage.setItem(
+      "teaSmokersCustomer",
+      JSON.stringify(customer)
+    );
 
-        if (!response.ok) return;
+    show("customerProfile");
 
-        const data = await response.json();
+    document.getElementById("customerName").textContent=
+      "Welcome, "+customer.name+" ☕";
 
-        localStorage.setItem(
-            "teaSmokersCustomer",
-            JSON.stringify(data)
-        );
+    document.getElementById("customerPhone").textContent=
+      customer.phone;
 
-        pointsElement.textContent =
-            data.stamps || 0;
+    document.getElementById("points").textContent=
+      customer.stamps;
 
-    } catch (error) {
-        console.error("Could not load customer:", error);
+    const percentage=Math.min(
+      (customer.stamps/10)*100,
+      100
+    );
+
+    document.getElementById("stampFill").style.width=
+      percentage+"%";
+
+    const available=
+      customer.rewards_earned-
+      customer.rewards_redeemed;
+
+    if(available>0){
+
+      show("rewardAvailable");
+
+      document.getElementById("rewardCount").textContent=
+        available+" reward(s) available";
+
+      document.getElementById("rewardStatus").textContent=
+        "🎉 You have "+available+" ₹150 OFF reward(s) available.";
+
+    }else{
+
+      hide("rewardAvailable");
+
+      document.getElementById("rewardStatus").innerHTML=
+        "Earn <strong>"+(10-customer.stamps)+"</strong> more stamp(s) to unlock ₹150 OFF.";
+
     }
+
+    loadCustomerHistory(token);
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
 }
 
-loadCustomer();
-  </script>
+
+// =====================================================
+// CUSTOMER HISTORY
+// =====================================================
+
+async function loadCustomerHistory(token){
+
+  const box=document.getElementById("customerHistory");
+
+  try{
+
+    const response=await fetch(
+      API+"/customer/"+token+"/visits"
+    );
+
+    const visits=await response.json();
+
+    if(!visits.length){
+
+      box.innerHTML=
+        '<div class="empty">No visit history yet.</div>';
+
+      return;
+    }
+
+    box.innerHTML=visits.map(function(v){
+
+      return `
+        <div class="history-item">
+
+          <div class="history-row">
+            <strong>${formatMoney(v.bill_amount)}</strong>
+            <strong>+${v.stamps_added} ⭐</strong>
+          </div>
+
+          <div class="history-small">
+            ${formatDate(v.created_at)}
+          </div>
+
+          ${
+            v.reward_unlocked>0
+            ? `<div style="margin-top:5px;color:#176b2c;">
+                🎁 ${v.reward_unlocked} reward unlocked
+              </div>`
+            : ""
+          }
+
+        </div>
+      `;
+
+    }).join("");
+
+  }catch(error){
+
+    box.innerHTML=
+      '<div class="empty">Unable to load history.</div>';
+
+  }
+
+}
+
+
+// =====================================================
+// CUSTOMER URL
+// =====================================================
+
+const urlParams=new URLSearchParams(
+  window.location.search
+);
+
+const customerToken=urlParams.get("customer");
+
+if(customerToken){
+
+  hide("registrationCard");
+
+  loadCustomer(customerToken);
+
+}else{
+
+  const saved=
+    localStorage.getItem("teaSmokersCustomer");
+
+  if(saved){
+
+    try{
+
+      const customer=JSON.parse(saved);
+
+      loadCustomer(customer.token);
+
+    }catch(e){}
+
+  }
+
+}
+
+
+// =====================================================
+// SECRET STAFF LOGIN ACCESS
+// =====================================================
+//
+// Staff login can be opened by:
+// ?staff=login
+//
+// Example:
+// yoursite.com/?staff=login
+//
+
+if(urlParams.get("staff")==="login"){
+
+  hide("customerPage");
+  show("staffLoginPage");
+
+  if(adminToken){
+
+    hide("staffLoginPage");
+    show("adminPage");
+
+    loadDashboard();
+
+  }
+
+}
+
+
+// =====================================================
+// STAFF LOGIN
+// =====================================================
+
+document.getElementById("loginForm")
+.addEventListener("submit",async function(event){
+
+  event.preventDefault();
+
+  clearMessage("loginError");
+
+  const username=
+    document.getElementById("loginUsername").value.trim();
+
+  const password=
+    document.getElementById("loginPassword").value;
+
+  try{
+
+    const response=await fetch(API+"/staff/login",{
+
+      method:"POST",
+
+      headers:{
+        "Content-Type":"application/json"
+      },
+
+      body:JSON.stringify({
+        username:username,
+        password:password
+      })
+
+    });
+
+    const data=await response.json();
+
+    if(!response.ok){
+      throw new Error(
+        data.error||"Invalid username or password"
+      );
+    }
+
+    adminToken=data.token;
+
+    localStorage.setItem(
+      "teaSmokersAdminToken",
+      adminToken
+    );
+
+    hide("staffLoginPage");
+    show("adminPage");
+
+    loadDashboard();
+
+  }catch(error){
+
+    message(
+      "loginError",
+      "❌ "+error.message
+    );
+
+  }
+
+});
+
+
+// =====================================================
+// ADMIN API
+// =====================================================
+
+async function adminFetch(url,options={}){
+
+  options.headers=options.headers||{};
+
+  options.headers.Authorization=
+    "Bearer "+adminToken;
+
+  if(options.body){
+    options.headers["Content-Type"]=
+      "application/json";
+  }
+
+  const response=
+    await fetch(url,options);
+
+  if(response.status===401){
+
+    logout();
+
+    throw new Error(
+      "Staff session expired. Please login again."
+    );
+
+  }
+
+  const data=await response.json();
+
+  if(!response.ok){
+
+    throw new Error(
+      data.error||"Request failed"
+    );
+
+  }
+
+  return data;
+
+}
+
+
+// =====================================================
+// DASHBOARD
+// =====================================================
+
+async function loadDashboard(){
+
+  try{
+
+    const stats=
+      await adminFetch(API+"/admin/stats");
+
+    document.getElementById("totalCustomers")
+      .textContent=
+      stats.all.customers;
+
+    document.getElementById("totalSales")
+      .textContent=
+      formatMoney(stats.all.revenue);
+
+    document.getElementById("activeStamps")
+      .textContent=
+      stats.all.active_stamps;
+
+    document.getElementById("rewardsEarned")
+      .textContent=
+      stats.all.rewards;
+
+    document.getElementById("todaySales")
+      .textContent=
+      formatMoney(stats.today.sales);
+
+    document.getElementById("todayVisits")
+      .textContent=
+      stats.today.visits;
+
+    document.getElementById("todayStamps")
+      .textContent=
+      stats.today.stamps;
+
+
+    customers=
+      await adminFetch(API+"/admin/customers");
+
+    renderCustomers(customers);
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+
+// =====================================================
+// ADD STAMPS CALCULATOR
+// =====================================================
+
+document.getElementById("billAmount")
+.addEventListener("input",function(){
+
+  const bill=
+    Math.floor(Number(this.value));
+
+  const calculation=
+    document.getElementById("stampCalculation");
+
+  if(!Number.isFinite(bill)||bill<150){
+
+    calculation.innerHTML=
+      "₹150 = 1 Stamp";
+
+    return;
+
+  }
+
+  const stamps=
+    Math.floor(bill/150);
+
+  calculation.innerHTML=
+    "<strong>"+formatMoney(bill)+
+    " = "+stamps+
+    " Stamp"+(stamps!==1?"s":"")+
+    "</strong>";
+
+});
+
+
+// =====================================================
+// ADD STAMPS
+// =====================================================
+
+async function addStamps(){
+
+  clearMessage("stampSuccess");
+  clearMessage("stampError");
+
+  const phone=
+    document.getElementById("stampPhone")
+    .value.trim();
+
+  const bill=
+    Math.floor(
+      Number(
+        document.getElementById("billAmount").value
+      )
+    );
+
+  if(!/^[0-9]{10}$/.test(phone)){
+
+    message(
+      "stampError",
+      "Enter a valid 10-digit mobile number."
+    );
+
+    return;
+
+  }
+
+  if(!Number.isFinite(bill)||bill<150){
+
+    message(
+      "stampError",
+      "Minimum bill amount is ₹150."
+    );
+
+    return;
+
+  }
+
+  try{
+
+    const data=
+      await adminFetch(
+        API+"/admin/stamps",
+        {
+          method:"POST",
+          body:JSON.stringify({
+            phone:phone,
+            billAmount:bill
+          })
+        }
+      );
+
+    let msg=
+      "✅ "+data.earned+
+      " stamp(s) added successfully.";
+
+    if(data.rewardsUnlocked){
+
+      msg+=
+        " 🎉 "+data.rewardsUnlocked+
+        " ₹150 OFF reward unlocked!";
+    }
+
+    message("stampSuccess",msg);
+
+    document.getElementById("stampPhone").value="";
+    document.getElementById("billAmount").value="";
+
+    document.getElementById("stampCalculation")
+      .textContent="₹150 = 1 Stamp";
+
+    loadDashboard();
+
+  }catch(error){
+
+    message(
+      "stampError",
+      "❌ "+error.message
+    );
+
+  }
+
+}
+
+
+// =====================================================
+// CUSTOMER SEARCH
+// =====================================================
+
+function searchCustomers(){
+
+  const query=
+    document.getElementById("customerSearch")
+    .value
+    .trim()
+    .toLowerCase();
+
+  const box=
+    document.getElementById("searchResults");
+
+  if(!query){
+
+    box.innerHTML="";
+
+    return;
+
+  }
+
+  const results=
+    customers.filter(function(c){
+
+      return String(c.phone).includes(query) ||
+             String(c.name).toLowerCase().includes(query);
+
+    });
+
+  if(!results.length){
+
+    box.innerHTML=
+      '<div class="empty">No customer found.</div>';
+
+    return;
+
+  }
+
+  box.innerHTML=
+    results.map(function(c){
+
+      const available=
+        c.rewards_earned-
+        c.rewards_redeemed;
+
+      return `
+
+        <div class="search-result">
+
+          <h3>${escapeHtml(c.name)}</h3>
+
+          <p>
+            📱 ${c.phone}
+          </p>
+
+          <p>
+            ⭐ Current Stamps:
+            <strong>${c.stamps}/10</strong>
+          </p>
+
+          <p>
+            💰 Total Spent:
+            <strong>${formatMoney(c.total_spent)}</strong>
+          </p>
+
+          <p>
+            🎁 Rewards Earned:
+            <strong>${c.rewards_earned}</strong>
+          </p>
+
+          <p>
+            🎟️ Rewards Redeemed:
+            <strong>${c.rewards_redeemed}</strong>
+          </p>
+
+          <p>
+            🎁 Available:
+            <strong>${available}</strong>
+          </p>
+
+          <button
+            onclick="viewCustomerHistory('${c.token}')">
+            View History
+          </button>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+// =====================================================
+// CUSTOMER HISTORY MODAL-LIKE DISPLAY
+// =====================================================
+
+async function viewCustomerHistory(token){
+
+  const customer=
+    customers.find(c=>c.token===token);
+
+  if(!customer)return;
+
+  let visits=[];
+
+  try{
+
+    visits=
+      await fetch(
+        API+"/customer/"+token+"/visits"
+      ).then(r=>r.json());
+
+  }catch(e){}
+
+  const existing=
+    document.getElementById("customerHistoryAdmin");
+
+  if(existing)existing.remove();
+
+  const div=
+    document.createElement("div");
+
+  div.id="customerHistoryAdmin";
+
+  div.className="card";
+
+  div.innerHTML=`
+
+    <h2>📜 Customer History</h2>
+
+    <p>
+      <strong>${escapeHtml(customer.name)}</strong>
+      · ${customer.phone}
+    </p>
+
+    <p>
+      ⭐ Current Stamps:
+      ${customer.stamps}/10
+    </p>
+
+    ${
+      visits.length
+      ? visits.map(v=>`
+
+        <div class="history-item">
+
+          <div class="history-row">
+            <strong>
+              ${formatMoney(v.bill_amount)}
+            </strong>
+
+            <strong>
+              +${v.stamps_added} ⭐
+            </strong>
+          </div>
+
+          <div class="history-small">
+            ${formatDate(v.created_at)}
+          </div>
+
+          ${
+            v.reward_unlocked
+            ? `<div style="color:#176b2c;margin-top:5px;">
+                🎁 ${v.reward_unlocked}
+                reward unlocked
+              </div>`
+            : ""
+          }
+
+        </div>
+
+      `).join("")
+      : '<div class="empty">No visits found.</div>'
+    }
+
+  `;
+
+  document
+    .getElementById("searchCustomer")
+    .appendChild(div);
+
+  div.scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+// =====================================================
+// REDEEM REWARD
+// =====================================================
+
+async function redeemReward(){
+
+  clearMessage("redeemSuccess");
+  clearMessage("redeemError");
+
+  const phone=
+    document.getElementById("redeemPhone")
+    .value.trim();
+
+  if(!/^[0-9]{10}$/.test(phone)){
+
+    message(
+      "redeemError",
+      "Enter a valid 10-digit mobile number."
+    );
+
+    return;
+
+  }
+
+  const customer=
+    customers.find(c=>c.phone===phone);
+
+  if(customer){
+
+    const available=
+      customer.rewards_earned-
+      customer.rewards_redeemed;
+
+    if(available<=0){
+
+      message(
+        "redeemError",
+        "❌ This customer has no ₹150 reward available."
+      );
+
+      return;
+
+    }
+
+    const confirmRedeem=
+      confirm(
+        "Confirm ₹150 OFF redemption for "+
+        customer.name+"?"
+      );
+
+    if(!confirmRedeem)return;
+
+  }
+
+  try{
+
+    const data=
+      await adminFetch(
+        API+"/admin/redeem",
+        {
+          method:"POST",
+          body:JSON.stringify({
+            phone:phone
+          })
+        }
+      );
+
+    message(
+      "redeemSuccess",
+      "🎉 ₹150 OFF successfully redeemed for "+
+      data.customer.name+"."
+    );
+
+    document.getElementById("redeemPhone").value="";
+
+    loadDashboard();
+
+  }catch(error){
+
+    message(
+      "redeemError",
+      "❌ "+error.message
+    );
+
+  }
+
+}
+
+
+// =====================================================
+// RENDER CUSTOMERS
+// =====================================================
+
+function renderCustomers(list){
+
+  const tbody=
+    document.getElementById("customersTable");
+
+  if(!list.length){
+
+    tbody.innerHTML=`
+      <tr>
+        <td colspan="6">
+          No customers found.
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+  tbody.innerHTML=
+    list.map(function(c){
+
+      const available=
+        c.rewards_earned-
+        c.rewards_redeemed;
+
+      return `
+
+        <tr>
+
+          <td>
+            ${escapeHtml(c.name)}
+          </td>
+
+          <td>
+            ${c.phone}
+          </td>
+
+          <td>
+            <span class="badge">
+              ${c.stamps}/10
+            </span>
+          </td>
+
+          <td>
+            ${formatMoney(c.total_spent)}
+          </td>
+
+          <td>
+            ${c.rewards_earned}
+            ${
+              available>0
+              ? `<span class="badge reward">
+                  ${available} available
+                </span>`
+              : ""
+            }
+          </td>
+
+          <td>
+            ${c.rewards_redeemed}
+          </td>
+
+        </tr>
+
+      `;
+
+    }).join("");
+
+}
+
+
+// =====================================================
+// TABS
+// =====================================================
+
+function showTab(id,button){
+
+  document
+    .querySelectorAll(".section")
+    .forEach(function(section){
+      section.classList.remove("active");
+    });
+
+  document
+    .querySelectorAll(".tab")
+    .forEach(function(tab){
+      tab.classList.remove("active");
+    });
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+  button.classList.add("active");
+
+}
+
+
+// =====================================================
+// LOGOUT
+// =====================================================
+
+function logout(){
+
+  localStorage.removeItem(
+    "teaSmokersAdminToken"
+  );
+
+  adminToken=null;
+
+  hide("adminPage");
+  show("staffLoginPage");
+
+  window.history.replaceState(
+    {},
+    document.title,
+    window.location.pathname
+  );
+
+}
+
+
+// =====================================================
+// SECURITY / HTML ESCAPE
+// =====================================================
+
+function escapeHtml(value){
+
+  return String(value||"")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+</script>
 
 </body>
 </html>
